@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EIA Professional Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{margin:0;font-family:Poppins;background:#eef5f2;color:#333}
+header{background:linear-gradient(135deg,#1b5e20,#66bb6a);color:white;text-align:center;padding:50px}
+nav{background:#2e7d32;padding:10px;text-align:center;position:sticky;top:0}
+nav a{color:white;margin:15px;text-decoration:none;font-weight:bold}
+section{padding:40px 10%}
+.card{background:white;padding:20px;margin:20px 0;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+.hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero img{width:45%;border-radius:10px}
+button{background:#2e7d32;color:white;padding:10px 15px;border:none;border-radius:5px;cursor:pointer}
+footer{background:#1b5e20;color:white;text-align:center;padding:20px}
+.fade{opacity:0;transform:translateY(20px);transition:0.6s}
+.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Environmental Impact Assessment</h1>
+<p>Based on MoEF (India) & United Nations Framework</p>
+<p>SE Computer Engineering Project</p>
+</header>
+
+<nav>
+<a href="#intro">Intro</a>
+<a href="#process">Process</a>
+<a href="#analysis">Analysis</a>
+<a href="#report">Report</a>
+</nav>
+
+<section id="intro" class="fade">
+<div class="hero">
+<div>
+<h2>What is EIA?</h2>
+<p>
+Environmental Impact Assessment (EIA) is a process used to evaluate environmental effects of a project before decision-making.
+It considers environmental, social, and economic impacts. :contentReference[oaicite:0]{index=0}
+</p>
+
+<p>
+According to MoEF, EIA ensures sustainable use of natural resources and is mandatory for many large-scale projects in India. :contentReference[oaicite:1]{index=1}
+</p>
+
+<button onclick="showInfo()">Why Important?</button>
+</div>
+
+<img src="https://images.unsplash.com/photo-1508780709619-79562169bc64">
+</div>
+</section>
+
+<section id="process" class="fade">
+<div class="card">
+<h2>EIA Process (India)</h2>
+<ul>
+<li>Screening</li>
+<li>Scoping</li>
+<li>Impact Analysis</li>
+<li>Public Consultation</li>
+<li>Environmental Management Plan</li>
+<li>Decision Making</li>
+<li>Monitoring</li>
+</ul>
+
+<p>
+EIA in India is governed under the Environmental Protection Act, 1986 and categorized into projects requiring central or state approval. :contentReference[oaicite:2]{index=2}
+</p>
+</div>
+</section>
+
+<section id="analysis" class="fade">
+<div class="card">
+<h2>Environmental Impact Analysis</h2>
+<canvas id="chart"></canvas>
+<br>
+<button onclick="updateChart()">Update Data</button>
+</div>
+</section>
+
+<section id="report" class="fade">
+<div class="card">
+<h2>Project Report Summary</h2>
+
+<p><b>Objective:</b> To analyze environmental impacts of development projects.</p>
+
+<p><b>Methodology:</b></p>
+<ul>
+<li>Data Collection (Air, Water, Soil)</li>
+<li>Impact Prediction Models</li>
+<li>Comparative Analysis</li>
+</ul>
+
+<p><b>Findings:</b></p>
+<ul>
+<li>Air pollution increases near industrial zones</li>
+<li>Water contamination affects biodiversity</li>
+<li>Noise pollution impacts human health</li>
+</ul>
+
+<p><b>Conclusion:</b></p>
+<p>
+EIA plays a critical role in sustainable development by minimizing environmental damage and improving decision-making. :contentReference[oaicite:3]{index=3}
+</p>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 EIA Project</p>
+<p>
+Project by : Sanskruti Almale A-09 , Trupti Aradawad A-11 , Swaraj Akhade A-08 , Yash Aher A-05
+</p>
+</footer>
+
+<script>
+// popup
+function showInfo(){
+alert("EIA helps prevent environmental damage before project approval.");
+}
+
+// scroll animation
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".fade").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("show")
+}
+})
+})
+
+// chart
+let ctx=document.getElementById("chart");
+let myChart=new Chart(ctx,{
+type:"bar",
+data:{
+labels:["Air","Water","Soil","Noise"],
+datasets:[{
+label:"Impact Level (%)",
+data:[60,50,40,30]
+}]
+}
+});
+
+function updateChart(){
+myChart.data.datasets[0].data=[80,70,60,50];
+myChart.update();
+}
+</script>
+
+</body>
+</html>
